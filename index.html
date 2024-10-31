@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="rgb-leds">
+        <input type="checkbox" class="rgb-led">
+        <input type="checkbox" class="rgb-led">
+        <input type="checkbox" class="rgb-led">
+        <input type="checkbox" class="rgb-led">
+        <input type="checkbox" class="rgb-led">
+        <input type="checkbox" class="rgb-led">
+        <input type="checkbox" class="rgb-led">
+        <input type="checkbox" class="rgb-led">
+    </div>
+
+    <div class="settings">
+        <input type="color" value="#398c26">
+        <div>
+            <span>Template:</span>
+            <select id="color">
+                <option>Blink</option>
+                <option>Turn on</option>
+                <option>Own</option>
+                <!-- <option></option>
+                <option></option> -->
+            </select>
+        </div>
+        <input type="text" placeholder="Delay (in ms)">
+    </div>
+
+    <div class="output">
+        <span>Code:</span>
+        <span></span>
+    </div>
+
+    <script>
+        const colorPicker = document.querySelector(".settings > input[type=color]");
+
+        const rgbLeds = document.querySelectorAll(".rgb-leds > .rgb-led");
+
+        colorPicker.addEventListener('input', (e) => {
+            for(let i = 0; i < rgbLeds.length; i++) {
+                rgbLeds[i].style.setProperty('--change-color', e.target.value);
+            }
+        });
+    </script>
+
+</body>
+</html>

@@ -1,0 +1,73 @@
+body {
+    margin: 0;
+}
+
+:root {
+    --rgb-margin: 10px;
+}
+
+body {
+    height: 100vh;
+}
+
+.rgb-leds {
+    width: 300px;
+    height: 125px;
+    border-radius: 25px;
+    display: flex;
+    gap: 0 29px;
+    align-items: center;
+    background: linear-gradient(45deg, #c91414, #ba1515, #7c1111);
+    border: solid 2px #000000;
+}
+
+.rgb-led {
+    appearance: none;
+    -webkit-appearance: none;
+    position: relative;
+    margin-bottom: 25px;
+    --change-color: #398c26;
+}
+
+.rgb-led:nth-child(1) {
+    margin-left: var(--rgb-margin);
+}
+
+.rgb-led::before {
+    content: "";
+    width: 25px;
+    height: 25px;
+    border: solid black 1.5px;
+    border-radius: 3px;
+    position: absolute;
+    top: 0;
+    left: 0;
+
+    transition: background-color .1s linear, border .1s linear;
+}
+
+.rgb-led:checked::before {
+    background-color: var(--change-color);
+    border: solid 1.5px #000000;
+}
+
+.settings {
+    display: flex;
+    flex-direction: column;
+    margin-left: 10px;
+    gap: 10px 0;
+    margin-top: 10px;
+}
+
+.settings input[type="text"] {
+    width: 130px;
+}
+
+.settings input[type="color"] {
+    appearance: none;
+    -webkit-appearance: none;
+    border: none;
+    width: 35px;
+    height: 35px;
+    cursor: pointer;
+}
